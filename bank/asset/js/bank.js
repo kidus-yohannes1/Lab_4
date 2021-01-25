@@ -72,6 +72,43 @@ function deposit(){
 
 }
 
+function transfer(){
+    var x =  prompt("Enter Your account number");
+    var y = prompt('Enter your password')
+    if ((x == personProfile.account_no) &&  (y == personProfile.Password)){
+        var amount = prompt("HOw much money to be transfered")
+        var acc = prompt("for whom to be transferd")
+        if ((acc == personProfile.account_no) || (acc == personProfile1.account_no)){
+            personProfile.balance = parseInt(personProfile.balance) - parseInt(amount);
+            personProfile1.balance = parseInt(personProfile1.balance) + parseInt(amount);
+            alert("You " + personProfile.Name + " have transfered: " + amount +" to " + personProfile1.Name);
+        }
+        else{
+            alert("unknown account")
+        }         
+    }
+
+
+    else if((x == personProfile1.account_no) &&  (y == personProfile1.Password)){
+            var amount = prompt("HOw much money to be transfered")
+            var acc = prompt("for whom to be transferd")
+            if ((acc == personProfile.account_no) || (acc == personProfile1.account_no)){
+                personProfile1.balance = parseInt(personProfile1.balance) - parseInt(amount);
+                personProfile.balance = parseInt(personProfile.balance) + parseInt(amount);
+                alert("You " + personProfile.Name + " have transfered: " + amount +" to " + personProfile1.Name);
+            }
+            else{
+                alert("unknown account")
+            }        
+        
+        }
+    
+    else{
+        alert("you don't have an account please create account ")
+    }
+
+}
+
 
 
 (function(){
